@@ -4,10 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#173f2b">
-  <meta name="description" content="Guía interactiva sobre razas bovinas y cruces genéticos, basada en el avance bibliográfico del proyecto.">
-  <title>Bovinos Genéticos | Cruces y Razas</title>
+  <meta name="description" content="Guía interactiva completa sobre razas bovinas, cruces genéticos y simulación de mejoramiento genético. Proyecto académico de Zooctenia.">
+  <title>Bovinos Genéticos | Cruces, Razas y Simulador Avanzado</title>
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -20,8 +21,10 @@
     <nav id="nav">
       <a href="#inicio">Inicio</a>
       <a href="#razas">Razas</a>
+      <a href="#comparativa">Comparativa</a>
       <a href="#cruces">Cruces</a>
       <a href="#simulador">Simulador</a>
+      <a href="#conceptos">Conceptos</a>
       <a href="#fuentes">Fuentes</a>
     </nav>
   </header>
@@ -29,111 +32,193 @@
   <main>
     <section id="inicio" class="hero">
       <div class="hero-content">
-        <span class="eyebrow">PROYECTO ACADÉMICO · GENÉTICA BOVINA</span>
+        <span class="eyebrow">PROYECTO ACADÉMICO · ZOOCTENIA · GENÉTICA BOVINA</span>
         <h1>Razas bovinas y<br><span>cruces genéticos</span></h1>
-        <p>Explora las principales razas utilizadas en el proyecto y comprende, de forma visual, qué puede ocurrir al combinar diferentes líneas genéticas.</p>
+        <p>Explora en profundidad las razas utilizadas en el proyecto, simula cruces con datos reales de producción y comprende los fundamentos del mejoramiento genético bovino.</p>
         <div class="hero-actions">
-          <a class="btn primary" href="#simulador">Probar simulador</a>
-          <a class="btn ghost" href="#cruces">Ver cruces</a>
+          <a class="btn primary" href="#simulador">🧬 Probar simulador</a>
+          <a class="btn ghost" href="#cruces">Ver cruces documentados</a>
         </div>
         <div class="hero-stats">
-          <div><strong>4</strong><span>razas base</span></div>
-          <div><strong>3</strong><span>cruces del estudio</span></div>
-          <div><strong>15</strong><span>referencias del avance</span></div>
+          <div><strong>6</strong><span>razas estudiadas</span></div>
+          <div><strong>3</strong><span>cruces documentados</span></div>
+          <div><strong>15</strong><span>fuentes científicas</span></div>
+          <div><strong>30+</strong><span>parámetros evaluados</span></div>
         </div>
       </div>
       <div class="cow-card">
+        <div class="dna-helix">
+          <div class="helix-strand"></div>
+          <div class="helix-strand delay"></div>
+        </div>
         <div class="cow-emoji">🐄</div>
         <div class="genome-ring"><span>ADN</span></div>
-        <div class="floating-note note-1">50% parental A</div>
-        <div class="floating-note note-2">50% parental B</div>
+        <div class="floating-note note-1">
+          <span class="note-icon">🔬</span>
+          50% Parental A
+        </div>
+        <div class="floating-note note-2">
+          <span class="note-icon">🧬</span>
+          50% Parental B
+        </div>
+        <div class="floating-note note-3">
+          <span class="note-icon">⚡</span>
+          Vigor Híbrido
+        </div>
       </div>
     </section>
 
     <section class="notice">
       <span>🧬</span>
-      <div><strong>Importante:</strong> los cruces bovinos reales no se reducen a una sola tabla de Punnett. Crecimiento, producción, fertilidad, adaptación y eficiencia son rasgos generalmente poligénicos y también dependen del ambiente.</div>
+      <div><strong>Importante:</strong> Los cruces bovinos reales no se reducen a una tabla de Punnett. Crecimiento, producción, fertilidad, adaptación y eficiencia son rasgos generalmente <strong>poligénicos</strong> (controlados por múltiples genes) y también dependen del ambiente, la nutrición, el manejo y la interacción genotipo × ambiente. Los resultados del simulador son aproximaciones educativas basadas en la literatura científica disponible.</div>
     </section>
 
+    <!-- SECCIÓN RAZAS EXPANDIDA -->
     <section id="razas" class="section">
       <div class="section-head">
         <div>
-          <span class="eyebrow">RAZAS</span>
-          <h2>Los parentales del proyecto</h2>
+          <span class="eyebrow">RAZAS PARENTALES</span>
+          <h2>Conoce las razas del proyecto</h2>
         </div>
-        <p>Características generales y el papel de cada raza en los cruces estudiados.</p>
+        <p>Información detallada de cada raza: origen, características productivas, reproductivas y su rol en los cruces genéticos estudiados.</p>
       </div>
       <div id="breedGrid" class="cards"></div>
     </section>
 
+    <!-- NUEVA SECCIÓN: TABLA COMPARATIVA -->
+    <section id="comparativa" class="section">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">ANÁLISIS COMPARATIVO</span>
+          <h2>Tabla comparativa de razas</h2>
+        </div>
+        <p>Comparación de parámetros productivos y reproductivos clave entre las razas del proyecto.</p>
+      </div>
+      <div class="table-container">
+        <table id="breedComparisonTable" class="comparison-table">
+          <thead></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- CRUCES DOCUMENTADOS -->
     <section id="cruces" class="section dark-section">
       <div class="section-head">
         <div>
-          <span class="eyebrow">CRUCES DEL AVANCE</span>
+          <span class="eyebrow">CRUCES DEL AVANCE BIBLIOGRÁFICO</span>
           <h2>¿Qué busca cada combinación?</h2>
         </div>
-        <p>La información cuantitativa se presenta diferenciando datos del parental y resultados reportados directamente en F1.</p>
+        <p>La información cuantitativa se presenta diferenciando datos del parental y resultados reportados directamente en F1. Los cruces con datos directos están señalados.</p>
       </div>
       <div id="crossGrid" class="cross-grid"></div>
     </section>
 
+    <!-- SIMULADOR MEJORADO -->
     <section id="simulador" class="section simulator-section">
       <div class="section-head">
         <div>
-          <span class="eyebrow">SIMULADOR DIDÁCTICO</span>
-          <h2>Combina dos razas</h2>
+          <span class="eyebrow">SIMULADOR AVANZADO DE CRUCES</span>
+          <h2>Simula cruces genéticos</h2>
         </div>
-        <p>Selecciona los parentales para visualizar una composición F1 teórica y las características documentadas disponibles.</p>
+        <p>Selecciona dos razas parentales para visualizar la composición genética F1, parámetros productivos esperados, nivel de heterosis y un análisis detallado del cruce.</p>
       </div>
 
       <div class="simulator">
         <div class="selector-panel">
-          <label for="parentA">Parental A</label>
+          <div class="selector-header">
+            <span class="selector-icon">⚙️</span>
+            <h3>Configuración del cruce</h3>
+          </div>
+          <label for="parentA">🐄 Parental A (Materno)</label>
           <select id="parentA"></select>
-          <label for="parentB">Parental B</label>
+          <div id="parentAPreview" class="parent-preview"></div>
+          
+          <div class="cross-divider">
+            <span>✕</span>
+          </div>
+          
+          <label for="parentB">🐂 Parental B (Paterno)</label>
           <select id="parentB"></select>
-          <button id="simulateBtn" class="btn primary full">Generar cruce</button>
+          <div id="parentBPreview" class="parent-preview"></div>
+          
+          <button id="simulateBtn" class="btn primary full">🧬 Generar cruce F1</button>
+          
+          <div class="simulator-legend">
+            <div><span class="legend-dot documented"></span> F1 documentado</div>
+            <div><span class="legend-dot estimated"></span> Estimación didáctica</div>
+          </div>
         </div>
 
         <div id="resultPanel" class="result-panel">
           <div class="result-empty">
             <div class="big-icon">🧬</div>
             <h3>Selecciona dos parentales</h3>
-            <p>El simulador mostrará la composición teórica de la F1, características esperables y advertencias sobre la interpretación genética.</p>
+            <p>El simulador mostrará la composición teórica de la F1, parámetros productivos esperados, nivel de heterosis, gráfico radar de rasgos y advertencias sobre la interpretación genética.</p>
           </div>
         </div>
       </div>
 
       <div class="punnett">
         <div>
-          <span class="eyebrow">EJEMPLO MENDELIANO</span>
-          <h3>Tabla de Punnett simplificada</h3>
-          <p>Ejemplo didáctico para un locus con alelos <b>A/a</b>. No representa por sí solo el fenotipo productivo completo de un bovino.</p>
+          <span class="eyebrow">EJEMPLO MENDELIANO SIMPLIFICADO</span>
+          <h3>Tabla de Punnett (locus único)</h3>
+          <p>Ejemplo didáctico para <strong>un solo locus</strong> con alelos <b>A/a</b>. En la realidad, los rasgos productivos bovinos están controlados por cientos o miles de loci que actúan de forma aditiva y no aditiva.</p>
         </div>
         <div class="punnett-grid">
           <div></div><div class="allele">A</div><div class="allele">a</div>
           <div class="allele">A</div><div>AA</div><div>Aa</div>
           <div class="allele">a</div><div>Aa</div><div>aa</div>
         </div>
-        <div class="punnett-result"><b>Esperado:</b> 25% AA · 50% Aa · 25% aa</div>
+        <div class="punnett-result">
+          <b>Proporción esperada:</b><br>
+          25% AA · 50% Aa · 25% aa<br><br>
+          <b>En cruces F1 entre razas diferentes:</b><br>
+          100% de la progenie es Aa (heterocigota), lo que contribuye al vigor híbrido.
+        </div>
       </div>
     </section>
 
+    <!-- NUEVA SECCIÓN: CONCEPTOS GENÉTICOS -->
+    <section id="conceptos" class="section">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">FUNDAMENTOS</span>
+          <h2>Conceptos de genética bovina</h2>
+        </div>
+        <p>Comprende los principios fundamentales del mejoramiento genético aplicado a la producción bovina.</p>
+      </div>
+      <div id="conceptsGrid" class="concepts-grid"></div>
+
+      <!-- GLOSARIO -->
+      <div class="glossary-section">
+        <h3>📖 Glosario de términos</h3>
+        <div id="glossaryGrid" class="glossary-grid"></div>
+      </div>
+    </section>
+
+    <!-- FUENTES -->
     <section id="fuentes" class="section">
       <div class="section-head">
         <div>
-          <span class="eyebrow">BIBLIOGRAFÍA</span>
+          <span class="eyebrow">BIBLIOGRAFÍA CIENTÍFICA</span>
           <h2>Fuentes del avance</h2>
         </div>
-        <p>Referencias incluidas en el archivo suministrado para el proyecto.</p>
+        <p>Referencias científicas incluidas en el archivo suministrado para el proyecto. Todas las fuentes son de acceso público o tienen DOI verificable.</p>
       </div>
       <div id="sourceList" class="source-list"></div>
     </section>
   </main>
 
   <footer>
-    <div><strong>BovinosGenéticos</strong> · Aplicación web educativa</div>
-    <div>Proyecto académico · Información para fines didácticos</div>
+    <div>
+      <strong>BovinosGenéticos</strong> · Aplicación web educativa<br>
+      <span class="footer-sub">Proyecto académico de Zooctenia · Universidad</span>
+    </div>
+    <div>
+      <span>Información para fines didácticos</span><br>
+      <span class="footer-sub">Los datos provienen de fuentes científicas indexadas</span>
+    </div>
   </footer>
 
   <script src="app.js"></script>
